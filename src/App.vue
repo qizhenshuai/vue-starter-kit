@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    Hello Vue <br/>
+    开始属于自己的音乐之旅
   </div>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #282696;
   margin-top: 60px;
+  font-size: 60px;
 }
 </style>

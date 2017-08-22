@@ -1,8 +1,8 @@
 {
-  "name": "vue-music",
+  "name": "vue-starter-kit",
   "version": "1.0.0",
-  "description": "vue music",
-  "author": "qizhenshuai <qizhenshuai@icloud.com>",
+  "description": "A Vue.js project",
+  "author": "qizhenshuai",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
