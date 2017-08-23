@@ -1,30 +1,29 @@
 <template>
 	<div>
-
-    <router-view></router-view>
-
-		 <tabbar>
-      <tabbar-item link="/music">
-        <img slot="icon" src="../../assets/tab/ic_bar_wyymusic_selected.png">
+		 <tabbar class="tabbar">
+      <tabbar-item selected link="/index/music">
+        <img slot="icon" src="../../assets/tab/ic_bar_wyymusic.png">
         <span slot="label">发现音乐</span>
       </tabbar-item>
-      <tabbar-item show-dot link="/mymusic">
+      <tabbar-item link="/index/mymusic">
         <img slot="icon" src="../../assets/tab/ic_bar_mymusic.png">
         <span slot="label">我的音乐</span>
       </tabbar-item>
-      <tabbar-item selected link="/friend">
+      <tabbar-item  link="/index/friend">
         <img slot="icon" src="../../assets/tab/ic_bar_friend.png">
         <span slot="label">朋友</span>
       </tabbar-item>
-      <tabbar-item badge="2" link="/content">
+      <tabbar-item link="/index/content">
         <img slot="icon" src="../../assets/tab/ic_bar_me.png">
         <span slot="label">账号</span>
       </tabbar-item>
     </tabbar>
+    <router-view></router-view>
 	</div>
 </template>
 <script>
-	import { Tabbar, TabbarItem, } from 'vux/src/components/tabbar'
+  import { Tabbar, TabbarItem, } from 'vux/src/components/tabbar'
+  
 	export default {
 		name: 'index',
 		components:{
@@ -38,5 +37,7 @@
 
 </script>
 <style>
-	
+	.tabbar{
+    background: #235999;
+  }
 </style>
