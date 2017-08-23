@@ -14,7 +14,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "vue": "^2.3.3",
+    "vue-lazyload": "^1.0.6",
     "vue-router": "^2.6.0",
     "vux": "^2.5.8"
   },
@@ -35,7 +37,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "cross-spawn": "^5.0.1",
-    "css-loader": "^0.28.0",
+    "css-loader": "^0.28.5",
     "cssnano": "^3.10.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
@@ -61,6 +63,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "^2.0.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "lolex": "^1.5.2",
     "mocha": "^3.2.0",
     "nightwatch": "^0.9.12",
@@ -74,6 +78,8 @@
     "shelljs": "^0.7.6",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^12.1.0",
     "vue-style-loader": "^3.0.1",
