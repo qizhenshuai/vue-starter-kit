@@ -24,6 +24,7 @@ export default new Router({
     {
     	path:'/index',
     	component:Index,
+      redirect: '/index/music',
       children: [
         {
           path: 'music',
