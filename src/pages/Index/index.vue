@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="tab_wrap">
 		 <tabbar class="tabbar">
       <tabbar-item selected link="/index/music">
         <img slot="icon" src="../../assets/tab/ic_bar_wyymusic.png">
@@ -39,5 +39,9 @@
 <style>
 	.tabbar{
     background: #235999;
+  }
+  .tab_wrap{
+    width: 100%;
+    height: 100%;
   }
 </style>

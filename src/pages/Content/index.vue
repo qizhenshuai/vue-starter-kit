@@ -1,23 +1,26 @@
 <template>
-	<div>
-		<span>个人中心界面</span>
-		<img src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2340154269,1211682813&fm=26&gp=0.jpg' alt="">
+	<div class="wrap">
+		<c-header></c-header>
 	</div>
 </template>
 <script>
 	import ContentJson from './content.json';
+	import CHeader from './component/c-header';
 	export default {
 		name:'content',
+		components:{
+			CHeader
+		},
 		mounted(){
 			console.log('*************', ContentJson)
 		},
 	}
 </script>
 <style>
-	
-	img{
+	.wrap{
 		width: 100%;
-		height: 300px;
+		height: 100%;
+		background-color: red;
 	}
 </style>
 
