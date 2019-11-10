@@ -1,29 +1,32 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
-  import router from 'vue-router';
-  import Splash from '@/pages/Splash/index';
-  export default {
-    name: 'app',
-  }
-</script>
-
-<style>
+<style lang="scss">
 #app {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex:1;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
 </style>
-
-
-
-
-
-<!-- alt="欢迎进入我的音乐世界" -->
