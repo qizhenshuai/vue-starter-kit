@@ -1,4 +1,5 @@
-import 'babel-polyfill'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import 'amfe-flexible/index.js'
 import FastClick from 'fastclick'
