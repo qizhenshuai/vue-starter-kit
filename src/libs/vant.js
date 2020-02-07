@@ -12,6 +12,7 @@ import {
   NavBar,
   Icon,
   Toast,
+  Field,
   Dialog,
   Skeleton,
   Picker,
@@ -39,6 +40,7 @@ Vue.use(Cell)
   .use(NavBar)
   .use(Icon)
   .use(Toast)
+  .use(Field)
   .use(Dialog)
   .use(Skeleton)
   .use(Picker)

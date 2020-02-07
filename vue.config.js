@@ -45,7 +45,7 @@ module.exports = {
   devServer: {
     port,
     open: true,
-    host: 'localhost',
+    // host: 'localhost',
     https: false,
     hotOnly: false, // 热更新
     overlay: { // 让浏览器 overlay 同时显示警告和错误
