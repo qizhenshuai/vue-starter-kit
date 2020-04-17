@@ -42,13 +42,13 @@ module.exports = {
   },
   configureWebpack: config => {
     const plugins = []
-    config.externals = {
-      vue: 'Vue',
-      'element-ui': 'ELEMENT',
-      'vue-router': 'VueRouter',
-      vuex: 'Vuex',
-      axios: 'axios'
-    }
+    // config.externals = {
+    //   vue: 'Vue',
+    //   'element-ui': 'ELEMENT',
+    //   'vue-router': 'VueRouter',
+    //   vuex: 'Vuex',
+    //   axios: 'axios'
+    // }
     config.plugins = [...config.plugins, ...plugins]
   },
   chainWebpack: config => {
