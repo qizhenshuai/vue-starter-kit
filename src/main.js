@@ -9,6 +9,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import defaultSettings from './settings'
+import SvgIcon from 'components/SvgIcon'
+import '@/icons' // icon
 
 import './libs/vant'
 
@@ -24,6 +26,7 @@ if (process.env.NODE_ENV === 'development' && defaultSettings.vconsole) {
 }
 
 Vue.config.productionTip = false
+Vue.component('svg-icon', SvgIcon)
 Vue.use(global)
 
 new Vue({
