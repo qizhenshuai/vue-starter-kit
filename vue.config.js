@@ -22,7 +22,8 @@ module.exports = {
     // host: 'localhost',
     https: false,
     hotOnly: false, // 热更新
-    overlay: { // 让浏览器 overlay 同时显示警告和错误
+    overlay: {
+      // 让浏览器 overlay 同时显示警告和错误
       warnings: false,
       errors: true
     },
@@ -58,11 +59,7 @@ module.exports = {
     // config.plugins.delete('preload') // TODO: need test
     // config.plugins.delete('prefetch') // TODO: need test
 
-    config
-      .plugin('ignore')
-      .use(
-        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn$/)
-      )
+    config.plugin('ignore').use(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn$/))
     // 添加别名
     config.resolve.alias
       .set('@', resolve('src'))
@@ -102,44 +99,40 @@ module.exports = {
       .end()
 
     config
-    // https://webpack.js.org/configuration/devtool/#development
-      .when(process.env.NODE_ENV === 'development',
-        config => config.devtool('cheap-source-map')
-      )
+      // https://webpack.js.org/configuration/devtool/#development
+      .when(process.env.NODE_ENV === 'development', config => config.devtool('cheap-source-map'))
 
-    config
-      .when(process.env.NODE_ENV !== 'development',
-        config => {
-          config
-            .plugin('ScriptExtHtmlWebpackPlugin')
-            .after('html')
-            .use('script-ext-html-webpack-plugin', [{
+    config.when(process.env.NODE_ENV !== 'development', config => {
+      config
+        .plugin('ScriptExtHtmlWebpackPlugin')
+        .after('html')
+        .use('script-ext-html-webpack-plugin', [
+          {
             // `runtime` must same as runtimeChunk name. default is `runtime`
-              inline: /runtime\..*\.js$/
-            }])
-            .end()
-          config
-            .optimization.splitChunks({
-              chunks: 'all',
-              cacheGroups: {
-                libs: {
-                  name: 'chunk-libs',
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: 10,
-                  chunks: 'initial' // only package third parties that are initially dependent
-                },
-                commons: {
-                  name: 'chunk-commons',
-                  test: resolve('src/components'), // can customize your rules
-                  minChunks: 3, //  minimum common number
-                  priority: 5,
-                  reuseExistingChunk: true
-                }
-              }
-            })
-          config.optimization.runtimeChunk('single')
+            inline: /runtime\..*\.js$/
+          }
+        ])
+        .end()
+      config.optimization.splitChunks({
+        chunks: 'all',
+        cacheGroups: {
+          libs: {
+            name: 'chunk-libs',
+            test: /[\\/]node_modules[\\/]/,
+            priority: 10,
+            chunks: 'initial' // only package third parties that are initially dependent
+          },
+          commons: {
+            name: 'chunk-commons',
+            test: resolve('src/components'), // can customize your rules
+            minChunks: 3, //  minimum common number
+            priority: 5,
+            reuseExistingChunk: true
+          }
         }
-      )
+      })
+      config.optimization.runtimeChunk('single')
+    })
     if (IS_PRODUCTION) {
       // 压缩图片
       config.module
@@ -150,7 +143,7 @@ module.exports = {
         .options({
           mozjpeg: { progressive: true, quality: 65 },
           optipng: { enabled: false },
-          pngquant: { quality: [0.65, 0.90], speed: 4 },
+          pngquant: { quality: [0.65, 0.9], speed: 4 },
           gifsicle: { interlaced: false }
         })
 
@@ -188,7 +181,7 @@ module.exports = {
     // 启用 CSS modules for all css / pre-processor files.
     loaderOptions: {
       sass: {
-        prependData: `
+        additionalData: `
           @import "@/style/_mixin.scss";
           @import "@/style/_variables.scss";
           @import "@/style/common.scss";
