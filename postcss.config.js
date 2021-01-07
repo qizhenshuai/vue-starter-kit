@@ -2,7 +2,7 @@ const autoprefixer = require('autoprefixer')
 const postcssImport = require('postcss-import')
 const IS_PRODUCTION = ['production', 'prod'].includes(process.env.NODE_ENV)
 
-let plugins = []
+const plugins = []
 if (IS_PRODUCTION) {
   // 去除多余css
   plugins.push(postcssImport)
