@@ -92,12 +92,12 @@ const formatMoney = (val) => {
  * @returns {string}
  */
 const realFormatSecond = (second) => {
-  let secondType = typeof second
+  const secondType = typeof second
   if (secondType === 'number' || secondType === 'string') {
     second = parseInt(second)
-    let hours = Math.floor(second / 3600)
+    const hours = Math.floor(second / 3600)
     second = second - hours * 3600
-    let mimute = Math.floor(second / 60)
+    const mimute = Math.floor(second / 60)
     second = second - mimute * 60
     return hours + ':' + ('0' + mimute).slice(-2) + ':' + ('0' + second).slice(-2)
   } else {

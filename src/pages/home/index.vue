@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <div class="icon-list">
-      <svg-icon
+      <bc-svg
         v-for="icon in iconList"
         :key="icon"
-        class="icon"
+        class-name="icon"
         :icon-class="icon"
       />
     </div>
-    <img alt="Vue logo" src="~@/assets/logo.png">
+    <!-- <img alt="Vue logo" src="~@/assets/logo.png"> -->
     <div>余额{{ moeny | formatMoney }}</div>
     <van-button @click="handleGoHome">go home</van-button>
   </div>
@@ -23,19 +23,10 @@ export default {
     return {
       moeny: 5757,
       iconList: [
-        'dashboard',
-        'example',
-        'eye-open',
-        'eye',
-        'form',
-        'link',
-        'nested',
-        'password',
-        'table',
-        'tree',
-        'user',
-        '404',
-        'checked'
+        'checked',
+        'pay-checked',
+        'pay-uncheck',
+        'uncheck'
       ]
     }
   },

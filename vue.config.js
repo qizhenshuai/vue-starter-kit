@@ -72,6 +72,21 @@ module.exports = {
       .set('utils', resolve('src/utils'))
     // set preserveWhitespace
     config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+    config.module
       .rule('vue')
       .use('vue-loader')
       .loader('vue-loader')
@@ -126,7 +141,7 @@ module.exports = {
           // 打包图片
           config.module
             .rule('images')
-            .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+            .test(/\.(png|jpe?g|gif)(\?.*)?$/)
             .use('url-loader')
             .loader('url-loader')
             .options({

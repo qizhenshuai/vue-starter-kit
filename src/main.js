@@ -4,15 +4,15 @@ import Vue from 'vue'
 import 'amfe-flexible/index.js'
 import global from 'utils/global'
 import filters from '@/filters'
+import GlobalComponent from 'components/global'
 
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import defaultSettings from './settings'
-import SvgIcon from 'components/SvgIcon'
-import '@/icons' // icon
 
 import './libs/vant'
+import './icons' // icon
 
 // 全局过滤
 Object.keys(filters).forEach(key => {
@@ -26,8 +26,8 @@ if (process.env.NODE_ENV === 'development' && defaultSettings.vconsole) {
 }
 
 Vue.config.productionTip = false
-Vue.component('svg-icon', SvgIcon)
 Vue.use(global)
+Vue.use(GlobalComponent)
 
 new Vue({
   router,
