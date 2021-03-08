@@ -198,7 +198,7 @@ module.exports = {
     // 启用 CSS modules for all css / pre-processor files.
     loaderOptions: {
       sass: {
-        additionalData: `
+        prependData: `
           @import "@/style/_mixin.scss";
           @import "@/style/_variables.scss";
           @import "@/style/common.scss";
