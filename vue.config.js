@@ -175,6 +175,7 @@ module.exports = {
         .tap(() => [
           {
             algorithm: 'gzip',
+            filename: '[path].gz[query]',
             test: /\.js$|\.html$|\.css/, // 匹配文件名
             threshold: 10240, // 超过10k进行压缩
             minRatio: 0.8,
@@ -198,7 +199,7 @@ module.exports = {
     // 启用 CSS modules for all css / pre-processor files.
     loaderOptions: {
       sass: {
-        prependData: `
+        additionalData: `
           @import "@/style/_mixin.scss";
           @import "@/style/_variables.scss";
           @import "@/style/common.scss";
