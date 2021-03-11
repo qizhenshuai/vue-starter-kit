@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { cloneDeep } from 'lodash'
-import pathToRegexp from 'path-to-regexp'
+import { parse, compile } from 'path-to-regexp'
 import { Toast } from 'vant'
 
 import router from '@/router'
@@ -30,8 +30,8 @@ export default function request(options) {
       url = url.slice(domain.length)
     }
 
-    const match = pathToRegexp.parse(url)
-    url = pathToRegexp.compile(url)(params)
+    const match = parse(url)
+    url = compile(url)(params)
 
     for (const item of match) {
       if (item instanceof Object && item.name in cloneData) {
@@ -60,8 +60,9 @@ export default function request(options) {
     .then(response => {
       const { statusText, status, data } = response
       loadingInstance && loadingInstance.close()
+      data.code = data.error_code ? data.error_code : data.code
       // 添加统一的错误处理
-      if (data.code !== '0') {
+      if (data.code && parseInt(data.code) !== 0) {
         console.log(data.code, data.msg)
         Toast.fail(data.msg)
         // const errorCode = data.code
@@ -87,24 +88,24 @@ export default function request(options) {
       const { response, message } = error
       if (String(message) === CANCEL_REQUEST_MESSAGE) {
         return { success: false }
-    }
+      }
 
-    let msg
-    let statusCode
-    if (response && response instanceof Object) {
-      const { data, statusText } = response
-      statusCode = response.status
-      msg = data.message || statusText
-    } else {
-      statusCode = 600
-      msg = error.message || 'Network Error'
-    }
-    router.replace({ path: '/status', query: { type: 'DIY', desc: msg }})
-    /* eslint-disable */
-    return Promise.reject({
-      success: false,
-      statusCode,
-      message: msg,
+      let msg
+      let statusCode
+      if (response && response instanceof Object) {
+        const { data, statusText } = response
+        statusCode = response.status
+        msg = data.message || statusText
+      } else {
+        statusCode = 600
+        msg = error.message || 'Network Error'
+      }
+      router.replace({ path: '/status', query: { type: 'DIY', desc: msg }})
+      /* eslint-disable */
+      return Promise.reject({
+        success: false,
+        statusCode,
+        message: msg,
+      })
     })
-  })
 }
