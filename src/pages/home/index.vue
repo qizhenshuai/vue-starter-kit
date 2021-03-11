@@ -11,6 +11,7 @@
     <!-- <img alt="Vue logo" src="~@/assets/logo.png"> -->
     <div>余额{{ moeny | formatMoney }}</div>
     <van-button @click="handleGoHome">go home</van-button>
+    <van-button @click="handleToWeather">go weather</van-button>
   </div>
 </template>
 
@@ -34,6 +35,11 @@ export default {
     handleGoHome() {
       this.$router.push({
         path: '/home'
+      })
+    },
+    handleToWeather() {
+      this.$router.push({
+        path: '/weather'
       })
     }
   }

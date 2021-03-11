@@ -11,7 +11,7 @@ window.cancelRequest = new Map()
 
 export default function request(options) {
   /* eslint-disable */
-  let { params, url, method = 'get', loading = true } = options
+  let { params, url, method = 'get', headers, loading = true } = options
   const cloneData = cloneDeep(params)
   let loadingInstance = null
   if (loading) {
@@ -46,7 +46,8 @@ export default function request(options) {
   options.url = url
   options.params = cloneData
   options.headers = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/x-www-form-urlencoded;',
+    ...headers
   }
   options.cancelToken = new CancelToken(cancel => {
     window.cancelRequest.set(Symbol(Date.now()), {

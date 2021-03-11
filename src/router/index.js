@@ -18,6 +18,16 @@ let routes = [
     }
   },
   {
+    path: '/weather',
+    name: 'weather',
+    component: () => import(/* webpackChunkName: "weather" */ '@/pages/weather/index.vue'),
+    meta: {
+      title: 'weather',
+      keepAlive: true,
+      auth: false
+    }
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import(/* webpackChunkName: "home" */ '@/pages/error/404.vue'),
