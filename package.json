@@ -20,7 +20,7 @@
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.20",
     "nprogress": "^0.2.0",
-    "path-to-regexp": "^6.2.0",
+    "path-to-regexp": "^6.1.0",
     "vant": "^2.12.2",
     "vue": "^2.6.12",
     "vue-router": "^3.4.9",

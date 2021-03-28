@@ -19,7 +19,8 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-if (process.env.NODE_ENV === 'development' && defaultSettings.vconsole) {
+// __DEV__ 全局开发环境
+if (__DEV__ && defaultSettings.vconsole) {
   const VConsole = require('vconsole')
   // eslint-disable-next-line
   const my_console = new VConsole()

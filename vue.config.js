@@ -7,6 +7,7 @@ const resolve = dir => path.join(__dirname, dir)
 const IS_PRODUCTION = ['production', 'prod', 'pre'].includes(process.env.NODE_ENV)
 
 const port = process.env.port || process.env.npm_config_port || 5757
+global.__DEV__ = !IS_PRODUCTION
 
 module.exports = {
   publicPath: process.env.VUE_APP_PUBLIC_PATH,
@@ -55,6 +56,10 @@ module.exports = {
   chainWebpack: config => {
     // 修复HMR
     config.resolve.symlinks(true)
+    config.plugin('define').tap(args => {
+      args[0].__DEV__ = __DEV__
+      return args
+    })
     config
       .plugin('ignore')
       .use(
